@@ -24,3 +24,17 @@ $k^2+2k = 21,1*1000*1000*1000*8 \Rightarrow k \approx 410.852$
 ### Valores reais
 
 Para testar valores reais, foi deixado rodando o script incrementando o valor $N$ de 500 em 500, durante aproximadamente 3 horas, quando finalmente saturou-se a memória disponível. O valor encontrado foi substancialmente menor do que o previsto, sendo o último valor testado cujo resultado pode ser calculado $N = 83.501$.
+
+Para comparar as performances, os programas em C e Fortran, em ordem normal e reversa foram executados até $N= 50.000$, para que as comparações pudessem ser feitas e tempo hábil, chegando a esse gráfico:
+
+
+![734c328ce35d67aa4f1e13b4483336b2.png](results2.png)
+
+Uma observação importante, é que a estimativa mostrada em laranja é altamente dependente do tempo de execução de uma única operação. Após testar valores em diferentes ordens de
+magnitude, o valor escolhido foi $0,0001s$, pois resultou em valores na mesma ordem de magnitude dos experimentos.
+
+### Diferenças na alocação
+
+Os arrays em C, usando o método de alocação escolhido, são alocados na pilha de usuário do processo. Em fortran, como foi utilizado o comando ALLOCATE, acredito que a alocação aconteça na heap, por se tratar de um array dinâmico. 
+
+Assumindo que as aloações aconteçam de fato nas localidades descritas, o tempo de acesso a memória em C deveria ser mais rápido. Na prática , não observou-se diferenças significativas.

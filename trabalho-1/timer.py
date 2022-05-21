@@ -26,7 +26,7 @@ def log_time(time: float, n: int):
 
 def log_performance(program: str):
 
-    for n in range(1, 10000000, 1000):
+    for n in range(1, 50_002, 1000):
         start = time.time()
         response = subprocess.Popen([f'./{program}', str(n)])
         response.wait()

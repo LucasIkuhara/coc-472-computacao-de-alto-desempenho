@@ -1,4 +1,5 @@
 # %%
+from matplotlib.pyplot import title
 import pandas as pd
 import plotly.graph_objects as go
 
@@ -9,8 +10,8 @@ fortran = pd.read_csv('fortran.log')
 fortran_rev = pd.read_csv('fortran_reverse.log')
 
 complexityEstimate = {
-    'x': [x for x in range(0, 20001, 1000)],
-    'y': [(0.001*x)**2 for x in range(0, 20001, 1000)]
+    'x': [x for x in range(0, 50_001, 1000)],
+    'y': [(0.0001*x)**2 for x in range(0, 50_001, 1000)]
 }
 
 # %%
@@ -50,6 +51,9 @@ fig.add_trace(go.Scatter(
     mode='lines'
 ))
 
-fig.show()
+fig.update_xaxes(title='N')
+fig.update_yaxes(title='tempo (s)')
+fig.update_layout(title='Tempo de execução em função de N')
 
-# %%
+
+fig.show()
