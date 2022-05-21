@@ -26,13 +26,12 @@ def log_time(time: float, n: int):
 
 def log_performance(program: str):
 
-    for n in range(1, 10000000, 500):
-
+    for n in range(1, 10000000, 1000):
         start = time.time()
-        print(n)
-        response = subprocess.run([f'./{program}', str(n)])
+        response = subprocess.Popen([f'./{program}', str(n)])
+        response.wait()
 
-        if(response.stderr):
+        if(response.stderr):    
             print('Broke')
 
         delta = time.time() - start
