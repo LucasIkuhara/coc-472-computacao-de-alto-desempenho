@@ -3,9 +3,19 @@ PROGRAM main
 
   real :: k
   integer :: i, j
-  integer, parameter :: n = 20000
-  real, dimension (n,n) :: A
-  real, dimension (n,1) :: x, b
+  character(100) :: nAsChar
+  real, allocatable, dimension (:, :) :: A
+  real, allocatable, dimension (:, :) :: x, b
+  integer :: n
+  
+  ! Ler N da chamada do programa
+  CALL GET_COMMAND_ARGUMENT(1,nAsChar)
+  READ(nAsChar,*)n
+  
+  ! Alocar vetores com os tamanhos lidos
+  allocate(A(n,n))
+  allocate(x(n,1))
+  allocate(b(n,1))
 
   ! Popular x e A com números aleatórios
 
@@ -22,6 +32,7 @@ PROGRAM main
   end do
 
   ! A*x = b
+
   b = 0.0
 
   do i = 1, n
@@ -30,12 +41,6 @@ PROGRAM main
     end do
   end do
 
-
-
-    print*, ""
-    print*, "Matriz b:"
-    do i = 1, n
-      print*, b(i,1)
-    end do
+  print*, b(1,1)    
  
 END PROGRAM main
