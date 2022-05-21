@@ -32,7 +32,7 @@ int main( int argc, char *argv[]) {
         // Para cada elemento da linha
         for (int j = 0; j < n; j++) {
             
-            b[i] = b[i] + A[i][j] * x[j];
+            b[i] = b[i] + A[j][i] * x[j];
         }
 
     }
