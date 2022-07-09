@@ -28,7 +28,7 @@ Para testar valores reais, foi deixado rodando o script incrementando o valor $N
 Para comparar as performances, os programas em C e Fortran, em ordem normal e reversa foram executados até $N= 50.000$, para que as comparações pudessem ser feitas e tempo hábil, chegando a esse gráfico:
 
 
-![734c328ce35d67aa4f1e13b4483336b2.png](results2.png)
+![hh.png](results2.png)
 
 Uma observação importante, é que a estimativa mostrada em laranja é altamente dependente do tempo de execução de uma única operação. Após testar valores em diferentes ordens de
 magnitude, o valor escolhido foi $0,0001s$, pois resultou em valores na mesma ordem de magnitude dos experimentos.
